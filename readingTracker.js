@@ -1,8 +1,9 @@
 // Weekly reading log
 // readingLog is an arry of objects, each of which is a log entry with three
-// property:value pairs. It stores the amount of time spent reading each book
-// on each day. Because arrays are objects, const here does not mean that the
-// values inside, or the number of values, are unchangeable; it only means that
+// property:value pairs--the first two are string values, and the third is a
+// numeric value. They store the amount of time spent reading each book on each
+// day. Because arrays are objects, const here does not mean that the values
+// inside, or the number of values, are unchangeable; it only means that
 // readingLog cannot be unbound from this array or bound to a different object.
 // This assignment statement puts five objects in the array, but that number
 // can be changed later, e.g., by addReadBook() (see below).
@@ -15,6 +16,8 @@ const readingLog = [
 ];
 
 // Adds a new reading entry to the log
+// Accepts three parameters. It creates a new entry object of three
+// property:value pairs. It then uses push() to add it to the end of the log.
 function addReadBook(day, book, minutes) {
   // This line creates a new object of three property:value pairs in the same
   // format as the objects in readingLog. It sets the values of the pairs equal
@@ -26,6 +29,9 @@ function addReadBook(day, book, minutes) {
 }
 
 // Returns total minutes spent reading all week
+// Accepts one parameter (the log). It uses a 'for' loop to iterate through 
+// each entry in the log. It adds the number of minutes in each entry and  
+// returns the total.
 function totalReadingMinutes(log) {
   let total = 0;
   // This loop iterates through each object (entry) in the parameter (the log).
@@ -38,6 +44,10 @@ function totalReadingMinutes(log) {
 }
 
 // Returns the book read most frequently
+// Accepts one parameter (the log). The first loop iterates through each entry
+// in the log to create an object which stores how many times each book was
+// read. The second loop iterates through that local object to find the book
+// that was read the most times.
 function mostReadBook(log) {
   // This line creates an empty object which will accumulate counts of the
   // number of times each book was read.
@@ -89,6 +99,9 @@ function mostReadBook(log) {
 }
 
 // Prints a summary of minutes read per day
+// Accepts one parameter (the log). The loop iterates through each log entry
+// and displays a formatted list of all the entries, showing how many minutes
+// were spent reading each book each day.
 function printDailySummary(log) {
   // This 'for' loop iterates through each object (entry) in the parameter (the
   // log) and displays a nicely formatted list of the entries, explaining how
@@ -110,3 +123,10 @@ console.log("Total minutes read:", totalReadingMinutes(readingLog));
 // Display the title of the book that was read the most times (or if there is a
 // tie, the tied book that appears first in the log)
 console.log("Most read book:", mostReadBook(readingLog));
+
+// SUGGESTED IMPROVEMENT: The returned value from mostReadBook() is misleading
+// if two or more books are tied for the number of times they were read. If
+// there is a tie, I would like to see it return all tied books, which would be
+// a more accurate answer to the question of which book was read the most 
+// times. That could be done by returning a string or array containing the tied 
+// books.
