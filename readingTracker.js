@@ -1,5 +1,8 @@
+// CS 81 Module 4A Review Tracker, by GregH, 7/8/25
+// https://github.com/Greg01001000/cs81-module4a-reviewtracker
+
 // Weekly reading log
-// readingLog is an arry of objects, each of which is a log entry with three
+// readingLog is an array of objects, each of which is a log entry with three
 // property:value pairs--the first two are string values, and the third is a
 // numeric value. They store the amount of time spent reading each book on each
 // day. Because arrays are objects, const here does not mean that the values
@@ -130,3 +133,7 @@ console.log("Most read book:", mostReadBook(readingLog));
 // a more accurate answer to the question of which book was read the most 
 // times. That could be done by returning a string or array containing the tied 
 // books.
+
+// MY TEST CASE
+addReadBook("Sunday", "Foundation", 106);
+printDailySummary(readingLog);
